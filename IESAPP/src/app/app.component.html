@@ -1,4 +1,4 @@
-<app-header *ngIf="sessionInitializer"></app-header>
+<app-header *ngIf="sessionInitializer" (loggON)='salir($event)'></app-header>
 <app-login *ngIf="!sessionInitializer" (logON)='homeAccess($event)'></app-login>
 <router-outlet></router-outlet>
 <app-footer *ngIf="sessionInitializer"></app-footer>

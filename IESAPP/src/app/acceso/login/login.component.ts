@@ -1,5 +1,5 @@
-import { Component, OnInit, Injectable, Input, Output, EventEmitter, OnDestroy } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Component, OnInit, Injectable, Output, EventEmitter, OnDestroy } from "@angular/core";
+import { Router } from "@angular/router";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataServiceService } from '../../services/data-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     constructor(
       private DataServiceService: DataServiceService,
-      private _snackBar: MatSnackBar
+      private _snackBar: MatSnackBar,
+      private router: Router,
     ) {
         this.anio=new Date().getFullYear();
     }
@@ -43,28 +44,32 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
     
     this.DataServiceService.postService('login',data).subscribe((res: any) => {
-          if (res.err) {
+          if (res.mensaje == 'El Usuario esta bloqueado') {
             // error de user
-            this.logON.emit(0);
+            this.logON.emit(1);
+            this.router.navigate(["home"]);
+            this._snackBar.open('Aceeso correcto.','Cerrar');
           } else {
             // todo ok
-            this.logON.emit(1);
+            this.logON.emit(0);
+            this._snackBar.open(res.mensaje,'Cerrar');
           }
         },
         (error: any) => {
           console.log(error)
-          if(error.error.mensaje == 'El usuario no existe'){
+          if(error.error.mensaje == 'El Usuario esta bloqueado'){
+            this.logON.emit(1);
+            this.router.navigate(["home"]);
+            this._snackBar.open('Aceeso correcto.','Cerrar');
+          }else{
             this.logON.emit(0);
             this._snackBar.open(error.error.mensaje,'Cerrar');
-          }else{
-            this.logON.emit(1);
-            this._snackBar.open(error.error.mensaje,'Cerrar');
           }
-          
+ 
           // error de no conexion al servicio
         }
       );
-      // this.logON.emit(1);
+
   }
 
 }

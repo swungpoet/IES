@@ -19,7 +19,7 @@ AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
   }
 
   ngOnInit() {
-    console.log("ngOnInit");
+    this.homeAccess(0);
   }
   ngOnChanges() {
     console.log("ngOnChanges");
@@ -43,8 +43,9 @@ AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
     console.log("ngOnDestroy");
   }
 
-  homeAccess(e: any) {
-    if(e == 1){
+  homeAccess(e:any) {  
+    console.log(e);
+    if(localStorage.getItem('userLog')){
       console.log('ACCESS')
       this.sessionInitializer=true;
       this.router.navigate(["home"]);
@@ -52,6 +53,13 @@ AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
       console.log('NO ACCESS')
       this.sessionInitializer=false;
     }
-
   }
+
+  salir(e:any) {  
+    console.log(e);
+    if(e){
+      this.sessionInitializer=false;
+    }
+  }
+
 }

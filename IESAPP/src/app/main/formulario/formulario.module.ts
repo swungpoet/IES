@@ -7,13 +7,13 @@ import { FormularioRoutingModule } from './formulario-routing.module';
 // Componentes
 import { FormularioComponent } from './formulario.component';
 
-
+// Material
 import { MatCardModule } from "@angular/material/card";
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from '@angular/material/select';
-
+// Service
 import { CatalogoServiceService } from "../../services/catalogo-service.service";
 
 
