@@ -2,7 +2,7 @@ import { Component, OnInit, Injectable, Input, Output, EventEmitter, OnDestroy }
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataServiceService } from '../../services/data-service.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: "app-login",

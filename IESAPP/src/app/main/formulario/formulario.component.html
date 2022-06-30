@@ -1,1 +1,97 @@
-<h1>Formulario</h1>
+<div [formGroup]="infoForm">
+    <mat-card class="cardMarginBottom">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-xl-12">
+                <img class='imagenIconoGris' src="../../../assets/images/user.png">
+                &nbsp;&nbsp;&nbsp;
+                <span>Datos del usuario</span>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-xl-6">
+                <mat-form-field class="inputFullWide">
+                    <input matInput placeholder="Nombres *" maxlength='100'
+                        formControlName="nombre">
+                    <mat-error>
+                        El campo es
+                        <strong>requerido.</strong>
+                        No se permiten espacios vacios
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-6 col-xl-6">
+                <mat-form-field class="inputFullWide">
+                    <input matInput placeholder="Apellidos *" maxlength='100' formControlName="apellido">
+                    <mat-error>
+                        El campo es
+                        <strong>requerido.</strong>
+                        No se permiten espacios vacios
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-xl-6">
+                <mat-card-content>
+                    <section class="example-section">
+                        <mat-slide-toggle color='primary' class="example-margin" formControlName="fumas">
+                            Fumas
+                        </mat-slide-toggle>
+                    </section>
+                </mat-card-content>
+            </div>
+            <div class="col-sm-12 col-md-6 col-xl-6">
+                <mat-card-content>
+                    <section class="example-section">
+                        <mat-slide-toggle (change)="revisaCombo($event)" color='primary' class="example-margin" formControlName="lectura">
+                            Actualmente Practicas Lectura
+                        </mat-slide-toggle>
+                    </section>
+                </mat-card-content>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-xl-6">
+                <mat-form-field id="blueversion" class="inputFullWide">
+                    <mat-select [disabled]="!valibro" placeholder="Libros *" formControlName="libro">
+                        <mat-option id="bluemat" *ngFor='let lib of libros' [value]="lib.id">
+                            {{lib.titulo}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error>
+                        El campo es
+                        <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-6 col-xl-6">
+                <mat-form-field id="blueversion" class="inputFullWide">
+                    <mat-select placeholder="Estado Civil" formControlName="edoCivil">
+                        <mat-option id="bluemat" *ngFor='let civ of civil' [value]="civ.id">
+                            {{civ.edo}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error>
+                        El campo es
+                        <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-xl-12 text-center">
+                <button class="mb-2 mr-2 btn-square border-0 btn-transition btn btn-outline-primary float-right"
+                    (click)='validateUser()'><i
+                        class="pe-7s-diskette btn-icon-wrapper">
+                    </i>
+                    <!-- [disabled]="!(infoForm.valid)" -->
+                    Validar
+                </button>
+            </div>
+        </div>
+        <div *ngIf='!infoForm.valid'>
+            <p class="tagAviso">Los campos con * son obligatorios</p>
+        </div>
+    </mat-card>
+</div>

@@ -1,0 +1,22 @@
+.imagenIconoGris {
+    width: 40px;
+    height: 38px;
+  }
+
+  .inputFullWide {
+    width: 100% !important;
+  }
+
+  #bluemat{
+    background: white;
+    }
+    #bluemat:hover{
+    background: #d6e0fb;
+    }
+    #bluemat.mat-active{
+    background: #d6e0fb !important;
+    }
+    #bluemat.mat-selected{
+    background: #d6e0fb !important;
+    color: black !important;
+    }

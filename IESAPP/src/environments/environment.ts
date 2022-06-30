@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  serviceUrl: 'https://desa.ies-webcontent.com.mx/'
+  serviceUrl: 'https://desa.ies-webcontent.com.mx/',
+  serviceCatalogo: 'http://201.131.20.125/BienesRaicesApi/api/services/app/'
 };
 
 /*

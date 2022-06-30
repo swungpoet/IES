@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Utilerias
 import { DialogComponent } from "./utilerias/dialog/dialog.component";
@@ -43,7 +44,8 @@ import { DataServiceService } from "./services/data-service.service";
     MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [
     DataServiceService
