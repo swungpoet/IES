@@ -1,0 +1,26 @@
+<!-- <div class='row'>
+    <h2>&nbsp;&nbsp;{{data.message}}</h2>
+</div>
+<br>
+<div class="col-sm-12">
+    <h2>&nbsp;&nbsp;{{data.tituloMjs}}</h2>
+    <textarea class="col-sm-12" [(ngModel)]="name" style="border-radius: 15px;height: 130px;"></textarea>
+</div>
+<div class="float-right">
+    <button class="mb-2 mr-2 btn-square border-0 btn-transition btn btn-outline-primary"
+    (click)='acepta()'>Aceptar</button>
+    <button class="mb-2 mr-2 btn-square border-0 btn-transition btn btn-outline-default"
+    (click)='cancelar()'>Cancelar</button>
+</div> -->
+
+<h1 mat-dialog-title>{{data.message}}</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>{{data.tituloMjs}}</mat-label>
+    <input matInput [(ngModel)]="name">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancelar()">Cancelar</button>
+  <button mat-button (click)='acepta()' cdkFocusInitial>Aceptar</button>
+</div>

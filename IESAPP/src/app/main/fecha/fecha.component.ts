@@ -10,9 +10,10 @@ import { Router, ActivatedRoute } from "@angular/router";
   providedIn: "root",
 })
 export class FechaComponent implements OnInit, OnDestroy {
+
+
   constructor(
   ) {
-    
 
   }
 

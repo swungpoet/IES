@@ -1,7 +1,8 @@
-<div class="card text-center">
+<div class="card text-center fondo">
   <div class="card-body">
-    <h5 class="card-title">Bienvenido a mi portal</h5>
-    <p class="card-text">Nos podrías indicar tu nombre.</p>
-    <a href="#" class="btn btn-primary">Escribe tu nombre.</a>
+    <h1 class="card-title letra"> <span class="color">Bienvenido</span> a mi portal</h1>
+    <h4 class="card-text"> <p>Nos podrías indicar tu nombre.</p></h4>
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)='openDialog()'>Escribe tu nombre</button>
+    <p *ngIf="name" class="card-text"> {{ name | cambioLetras }} </p>
   </div>
 </div>
