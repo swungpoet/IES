@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from "../../environments/environment";
 import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs'
 import { map } from 'rxjs/operators';
+import { Router, ActivatedRoute } from "@angular/router";
 // import { JwtHelperService } from '@auth0/angular-jwt';
 
 
@@ -15,10 +16,12 @@ export class DataServiceService {
   headers: HttpHeaders;
   url: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
+    
     this.checkLogin();
     this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     this.url = environment.serviceUrl;
+    
    }
 
   get isLogged():Observable<boolean>{
@@ -56,6 +59,7 @@ export class DataServiceService {
   logout():void{
     localStorage.removeItem('userLog');
     this.loggedIn.next(false);
+    this.router.navigate([""]);
   }
 
   private  checkLogin(): void{

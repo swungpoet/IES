@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, OnDestroy } from "@angular/core";
+import { Component, OnInit, Injectable } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CatalogoServiceService } from '../../services/catalogo-service.service';
@@ -14,7 +14,7 @@ import { UsernameValidator } from '../../utilerias/validator/name.validator';
 @Injectable({
   providedIn: "root",
 })
-export class FormularioComponent implements OnInit, OnDestroy {
+export class FormularioComponent implements OnInit {
   valibro:boolean = false;
   libros=[
       {titulo:'Libro 1', id:1},
@@ -59,10 +59,6 @@ export class FormularioComponent implements OnInit, OnDestroy {
         // error de no conexion al servicio
       }
     );
-  }
-
-  ngOnDestroy() {
-
   }
 
   validateUser() {

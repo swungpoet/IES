@@ -31,6 +31,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onLogout():void{
     this.loggON.emit(1);
     this.authSvc.logout();
-    this.router.navigate([""]);
   }
 }

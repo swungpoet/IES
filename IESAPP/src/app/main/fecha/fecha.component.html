@@ -1,1 +1,45 @@
-<H1>HOLA</H1>
+Date  Picker:  <input type="date" [(ngModel)]="dateSelect" (change)="dateDia()">
+<br><br><br>
+<h1>Fecha:  {{ dateSelect | date: 'dd/MM/yyyy' }}</h1>
+<br><br><br>
+        <div [formGroup]="calendarioForm" *ngIf="dateSelect != ''">
+            <mat-card class="cardMarginBottom">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-xl-6">
+                    <mat-form-field id="blueversion" class="inputFullWide">
+                        <mat-select placeholder="Unidad " formControlName="fecha">
+                            <mat-option id="bluemat" *ngFor='let lib of calendar' [value]="lib.id">
+                                {{lib.fecha}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error>
+                            El campo es
+                            <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-12 col-md-6 col-xl-6">
+                    <mat-form-field class="inputFullWide">
+                        <input matInput type="number" placeholder="Cantidad " maxlength='10' formControlName="numero">
+                        <mat-error>
+                            El campo es
+                            <strong>requerido.</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-xl-12 text-center">
+                        <button class="mb-2 mr-2 btn-square border-0 btn-transition btn btn-outline-primary float-right"
+                            (click)='aplicar()' [disabled]="!(calendarioForm.valid)"><i
+                                class="pe-7s-diskette btn-icon-wrapper">
+                            </i>
+                            Sumar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+    <br><br><br>
+    <h1>Fecha Final:  {{ dateFinal | date }}</h1>
+    <br><br><br>

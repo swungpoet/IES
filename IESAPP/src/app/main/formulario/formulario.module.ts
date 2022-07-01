@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 // Rutas
 import { FormularioRoutingModule } from './formulario-routing.module';
-
 // Componentes
 import { FormularioComponent } from './formulario.component';
 
@@ -15,7 +14,6 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from '@angular/material/select';
 // Service
 import { CatalogoServiceService } from "../../services/catalogo-service.service";
-
 
 @NgModule({
   declarations: [
